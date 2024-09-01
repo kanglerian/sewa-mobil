@@ -15,6 +15,24 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @if (Auth::user()->role == 'A')
+                    <x-nav-link :href="route('cars.index')" :active="request()->routeIs([
+                        'cars.index',
+                        'cars.create',
+                        'cars.edit',
+                        'cars.show',
+                    ])">
+                        {{ __('Cars') }}
+                    </x-nav-link>
+                    @endif
+                    <x-nav-link :href="route('rentals.index')" :active="request()->routeIs([
+                        'rentals.index',
+                        'rentals.create',
+                        'rentals.edit',
+                        'rentals.show',
+                    ])">
+                        {{ __('Rentals') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -69,6 +87,24 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+            @if (Auth::user()->role == 'A')
+            <x-responsive-nav-link :href="route('cars.index')" :active="request()->routeIs([
+                'cars.index',
+                'cars.create',
+                'cars.edit',
+                'cars.show',
+            ])">
+                {{ __('Cars') }}
+            </x-responsive-nav-link>
+            @endif
+            <x-responsive-nav-link :href="route('rentals.index')" :active="request()->routeIs([
+                'rentals.index',
+                'rentals.create',
+                'rentals.edit',
+                'rentals.show',
+            ])">
+                {{ __('Rentals') }}
             </x-responsive-nav-link>
         </div>
 

@@ -20,6 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'phone',
+        'sim',
+        'address',
+        'role',
     ];
 
     /**
@@ -43,5 +47,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    public function rentalcars(){
+        return $this->hasMany(RentalCars::class, 'user_id');
+    }
+
+    public function returncars(){
+        return $this->hasMany(ReturnCars::class, 'user_id');
     }
 }
